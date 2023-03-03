@@ -1,0 +1,59 @@
+﻿@model WebApplication1.Models.Item
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/headercontent.css" />
+<div class="centercontent">
+    <h2 class="centertitle">TẠO MỚI ITEM</h2>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                Tên sản phẩm
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ItemName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ItemName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                Nhóm sản phẩm
+                <div class="col-md-10">
+                    @Html.DropDownList("CategoryID", null, htmlAttributes: new { @class = "form-select" })
+                    @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                Giá
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ItemPrice, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ItemPrice, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                Hình sản phẩm
+                <div class="col-md-10">
+                    <input type="file" name="ItemImageName" />
+                    @Html.ValidationMessageFor(model => model.ItemImageName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <br />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Tạo mới" class="btn btn-success" /> |  @Html.ActionLink("Quay lại", "Index",null,new { @class = "btn btn-primary" })
+                </div>
+            </div>
+        </div>
+    }
+</div>
