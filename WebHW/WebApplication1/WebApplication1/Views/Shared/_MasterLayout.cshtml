@@ -6,26 +6,24 @@
     <title>@ViewBag.Title</title>
     <link rel="stylesheet" href="~/Content/mystyle.css" />
     <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/headercontent.css" />
 </head>
 <body>
-    <div id="div-top">Menu</div>
+    <div id="div-top"><h4 class="centertitle" style="align-content:center">TRANG QUẢN LÝ HÀNG HÓA</h4></div>
     <div id="div-main">
         <div id="div-left">
-            <h3>Danh mục sản phẩm</h3>
-            <ul style="list-style: none">
-                <li>
-                    <a href="TrangChu">Trang chủ</a>
-                </li>
-                <li>
-                    <a href="DesktopComputer">Máy tính để bàn</a>
-                </li>
-                <li>
-                    Điện thoại
-                </li>
-                <li>
-                    Phụ kiện
-                </li>
-            </ul>
+            <h3>Danh mục chức năng quản lý</h3>
+            <form>
+                <ul style="list-style: none">
+                    <li>
+                        <button  class="btn btn-primary">Quản lý Categories</button>
+                    </li>
+                    <li><br /></li>
+                    <li>
+                        <button class="btn btn-success" href="~/Views/Items/Index.cshtml">Quản lý Items</button>
+                    </li>
+                </ul>
+            </form>
         </div>
         <div id="div-right">
             @RenderBody()
